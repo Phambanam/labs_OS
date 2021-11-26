@@ -22,6 +22,7 @@ int main(void)
 	got_usr1 = 0;
 
 	sa.sa_handler = sigusr1_handler;
+	
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
 

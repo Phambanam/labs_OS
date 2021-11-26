@@ -1,0 +1,26 @@
+
+fork() tra ve 0 khi o trong tien trinh con va tra ve so duong khi o  trong trinh cha, để kết thúc tiến trình con ta gọi exec() 
+bg- xem tien trinh chay an
+fg hien thi tieo tuc tien trinh dang chay
+Hiển thị thông tin tiến trình – lệnh ps
+
+Để biết thông tin các tiến trình hiện hành ta sử dụng lệnh: ps [option]
+
+-e: hiển thị thông tin về mỗi tiến trình.
+-l: hiển thị thông tin đầy đủ tiến trình.
+-f: hiển thị thông tin về tiến trình cha.
+-a: hiển thị tất cả các tiến trình.
+
+----
+int getpid() : trả về giá trị int là pid của tiến trình hiện tại
+
+int getppid() : trả về giá trị int là pid của tiến trình cha của tiến trình hiện tại
+
+int getpgrp() : trả về giá trị int là số hiệu của nhóm tiến trình
+
+int setpgrp() : trả về giá trị int là số hiệu nhóm tiến trình mới tạo ra
+'&' sau cau lenh de chay nen chuong trinh
+get_current_dir_name() để lấy đường dẫn hiện tại  của chương trình
+chdir("//.//..//") chuyen qua thu muc mới theo đường dẫn chỉ định 
+sleep(so day*1000 ) để sleep tiến trình 
+
