@@ -8,6 +8,7 @@ do
 	do
 		foundEq=false
 		lmt1=$(date +%s -r "$1/$line1")
+		#kiem tra neu thu muc mot chua co hoac file o thu muc 2 duoc lam moi thi copy
 		if [ $lmt1 -lt  $lmt2 ] && [ "$line1" == "$line2" ]; then 
 			cp  "$2/$line2" $1
 			break
@@ -29,7 +30,7 @@ do
     
      while IFS= read -r  line2
      do 
-	    
+	    #iem tra neu co file trong thu muc mot ma khong co trong thu muc 2 thif xoa no di
 	     foundE=false
 	     if [ "$line1" == "$line2" ]; then 
 		     foundE=true

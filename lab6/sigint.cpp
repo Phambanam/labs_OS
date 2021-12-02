@@ -20,9 +20,9 @@ int main(void)
 	struct sigaction sa;
 
 	sa.sa_handler = sigint_handler;
-	sa.sa_flags = 0; // or SA_RESTART
+	sa.sa_flags = 0; // or SA_RESTAiRT
 	sigemptyset(&sa.sa_mask);
-
+        // dang ki va thuc hien signal
 	if (sigaction(SIGINT, &sa, NULL) == -1) {
 		perror("sigaction");
 		exit(1);

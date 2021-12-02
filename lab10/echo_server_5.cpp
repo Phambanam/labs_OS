@@ -59,6 +59,7 @@ int main(void)
 			}
 
 			if (!done){
+			printf("works \n");
 			        if (send(s2, str, n, 0) < 0) {
                                         perror("send");
                                         done = 1;

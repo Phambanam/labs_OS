@@ -20,12 +20,12 @@ int main(void)
 	struct my_msgbuf buf;
 	int msqid;
 	key_t key;
-        //ftok(path,id) tao key cho IPC object
+
 	if ((key = ftok(".", 'B')) == -1) {
 		perror("ftok");
 		exit(1);
 	}
-	//tra ve id dinh danh co me moi dc khoitoa hoac tra ve id cua mot ms da ton taii= cung voi key
+
 	if ((msqid = msgget(key, 0644 | IPC_CREAT)) == -1) {
 		perror("msgget");
 		exit(1);
@@ -40,15 +40,11 @@ int main(void)
 
 		/* ditch newline at end, if it exists */
 		if (buf.mtext[len-1] == '\n') buf.mtext[len-1] = '\0';
-		//dua du lieu vao ms
+
 		if (msgsnd(msqid, &buf, len+1, 0) == -1) /* +1 for '\0' */
 			perror("msgsnd");
-		buf.mtype = 2;
-		if (msgsnd(msqid, &buf, len+1, 0) == -1) /* +1 for '\0' */
-                        perror("msgsnd");
-		buf.mtype = 1;
 	}
-        // xoa 1 ms
+
 	if (msgctl(msqid, IPC_RMID, NULL) == -1) {
 		perror("msgctl");
 		exit(1);

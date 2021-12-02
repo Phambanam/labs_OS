@@ -20,7 +20,7 @@ switch (cpid = (int) fork()){
     case -1:
 	perror("Bad fork");
 	exit(2);
-    case  0:		/* The child process */
+    case  0:		/* The parrent process */
 	close(sock[1]);
 	for (i=0; i<10; i+=2){
 	    sleep(1);

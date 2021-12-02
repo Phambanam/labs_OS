@@ -1,0 +1,3 @@
+read -s nguoi dung nhap vao se khong hien thi len man hinh
+-n 1 soluong ki tu nhap vao 
+-p ket thuc 

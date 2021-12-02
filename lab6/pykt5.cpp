@@ -24,10 +24,10 @@ void sigusr_handler(int sig) {
           struct timespec time1, time2, time3, time4; 
           struct sigaction sa;
 
-          time1.tv_sec = 5;
-          time1.tv_nsec = 0;
-          time3.tv_sec = 3;
-          time3.tv_sec = 0;
+          time1.tv_sec = 2;
+          time1.tv_nsec = 1000000;
+          time3.tv_sec = 2;
+          time3.tv_sec = 1000000;
 
           sigemptyset(&sa.sa_mask);
           sa.sa_flags = 0;
@@ -39,8 +39,8 @@ void sigusr_handler(int sig) {
               if(pid = fork()==0) {
                    pid = getppid();
                    while(true) {
-                             nanosleep(&time1, &time2);
-                                    if (errno == EINTR) nanosleep(&time2, &time2); 
+                             nanosleep(&time1, &time1);
+                                    if (errno == EINTR) nanosleep(&time1, &time1); 
                                     kill(pid, 10);
                                     fprintf(stderr, "Sent SIGUSR1 to child\n");
       
@@ -50,9 +50,9 @@ void sigusr_handler(int sig) {
 
                       while(true) {
 
-                                   nanosleep(&time3, &time4);
+                                   nanosleep(&time3, &time3);
 
-                                  if (errno == EINTR) nanosleep(&time4, &time4); 
+                                  if (errno == EINTR) nanosleep(&time3, &time3); 
                                   kill(pid, 12);
                                   fprintf(stderr, "Sent SIGUSR2 to parent\n");
                     }

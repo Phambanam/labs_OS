@@ -15,6 +15,7 @@ char	buffer[PIPE_BUF];
 char	u_char = 'A';
 int	i, n, mid[MAX];
 key_t	key;
+//tao ra 5 messeage
 for (i=0; i<MAX ; ++i, ++u_char){
     key = ftok(".", u_char);
 	if ((mid[i] = msgget(key, IPC_CREAT | 0660))==-1){
@@ -27,6 +28,8 @@ while((n = read(fileno(fin), buffer, PIPE_BUF))>0)
     write(fileno(stdout), buffer, n);	
 			    /*Display the ipcs output */
     pclose(fin);
+    
+    //xoa thong bao sau khi cahy xong
 for (i=0; i<MAX; ++i)
     msgctl(mid[i], IPC_RMID, NULL);
 			    /* remove */
