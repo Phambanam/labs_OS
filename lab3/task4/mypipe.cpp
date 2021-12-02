@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	int n;
+	
 	for (int i = 1; i < argc - 2; i++)
 	{
 		if ((fin = popen(argv[1], "r"))==NULL)
